@@ -1,13 +1,30 @@
 import React from 'react'
+import Link from 'next/link'
+import { connect } from 'react-redux'
 
-const Header = () => (
-  <header>
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Contact</li>
-    </ul>
-  </header>
-)
+const Header = (props) => {
+  const { count } = props
 
-export default Header
+  return (
+    <header>
+      {count}
+      <ul>
+        <li>
+          <Link href="/"><a>Home</a></Link>
+        </li>
+        <li>
+          <Link href="/about"><a>About</a></Link>
+        </li>
+        <li>
+          <Link href="/"><a>Contact</a></Link>
+        </li>
+      </ul>
+    </header>
+  )
+}
+
+const mapStateToProps = store => ({
+  count: store.count.count
+})
+
+export default connect(mapStateToProps)(Header)

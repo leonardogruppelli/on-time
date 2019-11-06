@@ -1,6 +1,6 @@
 const initialState = {
   count: 0
-};
+}
 
 export const count = (state = initialState, action) => {
   switch (action.type) {
@@ -10,6 +10,6 @@ export const count = (state = initialState, action) => {
         count: state.count + 1
       }
     default:
-      return state;
+      return state
   }
-};
+}

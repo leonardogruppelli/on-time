@@ -1,6 +1,6 @@
-import { count } from 'count';
-import { combineReducers } from 'redux';
+import { count } from 'store/reducers/count'
+import { combineReducers } from 'redux'
 
 export const Reducers = combineReducers({
   count: count
-});
+})
