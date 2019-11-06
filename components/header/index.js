@@ -1,13 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
-import { connect } from 'react-redux'
+import useGetters from 'store/getters'
+import useActions from 'store/actions'
 
-const Header = (props) => {
-  const { count } = props
+const Header = () => {
+  const { menu_active } = useGetters()
+  const { toggle_menu } = useActions()
 
   return (
     <header>
-      {count}
+      <button onClick={() => toggle_menu()}>Toggle menu</button>
+      <div>{menu_active ? "Menu Ativo" : "Menu Inativo"}</div>
+
       <ul>
         <li>
           <Link href="/"><a>Home</a></Link>
@@ -23,8 +27,4 @@ const Header = (props) => {
   )
 }
 
-const mapStateToProps = store => ({
-  count: store.count.count
-})
-
-export default connect(mapStateToProps)(Header)
+export default Header
