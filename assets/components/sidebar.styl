@@ -1,0 +1,76 @@
+aside
+  width 300px
+  height 100vh
+  float left
+  position fixed
+  top 0
+  left 0
+  background-color $grey
+  border-right 1px solid $red
+  transform translateX(-100%)
+  +above(l)
+    width 80px
+    position static
+    transform none
+
+  &.is-active
+    transform translateX(0)
+    +above(l)
+      width 300px
+
+      ul
+        li
+          text-align left
+          
+          span
+            display inline-block
+
+  ul
+    width 100%
+
+    li
+      white-space nowrap
+      +above(l)
+        text-align center
+
+      &:hover
+        background-color $blue
+
+        a
+          span
+          svg
+            color $salmon
+
+      a
+        display block
+        padding 25px
+
+        svg
+        span
+          display inline-block
+          vertical-align middle
+          color $purple
+
+        svg
+          width 30px
+          height 30px
+          margin-right 20px
+
+        span
+          position relative
+          padding-left 20px
+          font-size rem(12px)
+          font-weight 300
+          text-transform uppercase
+          +above(l)
+            display none
+
+          &:before
+            content ''
+            width 1px
+            height 30px
+            position absolute
+            top 50%
+            left 0
+            background-color $blue
+            transform translateY(-50%)

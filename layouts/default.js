@@ -1,7 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
+import Sidebar from 'components/sidebar'
+import Main from 'components/main'
 import Header from 'components/header'
-import Footer from 'components/footer'
 import { Provider } from 'react-redux'
 import { Store } from 'store'
 
@@ -12,11 +13,13 @@ const Default = ({ children }) => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
     <Provider store={Store}>
-      <Header />
-      <main>
-        {children}
-      </main>
-      <Footer />
+      <Sidebar />
+      <Main>
+        <Header />
+        <div className="container">
+          {children}
+        </div>
+      </Main>
     </Provider>
   </div>
 )

@@ -9,20 +9,12 @@ const Header = () => {
 
   return (
     <header>
-      <button onClick={() => toggle_menu()}>Toggle menu</button>
-      <div>{menu_active ? "Menu Ativo" : "Menu Inativo"}</div>
-
-      <ul>
-        <li>
-          <Link href="/"><a>Home</a></Link>
-        </li>
-        <li>
-          <Link href="/about"><a>About</a></Link>
-        </li>
-        <li>
-          <Link href="/"><a>Contact</a></Link>
-        </li>
-      </ul>
+      <button className={`btn btn--menu ${menu_active && "is-active"}`} onClick={() => toggle_menu()}>
+        Toggle Menu
+        <span></span>
+        <span className="middle"></span>
+        <span></span>
+      </button>
     </header>
   )
 }

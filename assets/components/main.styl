@@ -1,0 +1,15 @@
+main
+  width 100%
+  float left
+  +above(l)
+    width calc(100% - 80px)
+
+  &.is-contained
+    +above(l)
+      width calc(100% - 300px)
+
+  .container
+    padding 25px
+    overflow auto
+    +above(l)
+      padding 40px
