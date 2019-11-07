@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Leonardo Gruppelli",
+    "role": "Administrator"
+  },
+  {
+    "id": 2,
+    "name": "Tiago Ferreira",
+    "role": "Employee"
+  }
+]

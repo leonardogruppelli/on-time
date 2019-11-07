@@ -1,0 +1,18 @@
+main
+  width 100%
+  float left
+  +above(l)
+    width calc(100% - 80px)
+
+  &.is-contained
+    
+    +above(l)
+      width calc(100% - 200px)
+      transform none
+    +above(xl)
+      width calc(100% - 300px)      
+
+  .container
+    max-height calc(100vh - 70px)
+    padding 2%
+    overflow auto

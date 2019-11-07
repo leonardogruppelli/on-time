@@ -1,0 +1,37 @@
+table
+  width 100%
+  background-color $grey
+  text-align left
+  text-transform uppercase
+
+  tbody
+    tr:last-of-type
+      border-bottom 0
+
+  tr
+    border-bottom 1px solid $blue
+
+    th
+    td
+      padding 4% 4%
+      +above(l)
+        padding 2% 4%
+
+      &.id
+        width 10%
+        text-align center
+
+      &.mobile
+        display none
+        +above(l)
+          display table-cell
+
+    th
+      font-size rem(14px)
+      font-weight 500
+      color $salmon
+
+    td
+      font-size rem(12px)
+      font-weight 300
+      color $purple

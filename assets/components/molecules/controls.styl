@@ -1,0 +1,35 @@
+.controls
+  height 100%
+  float right
+  padding 0 20px
+  +above(l)
+    padding 0 25px
+
+  .user
+    height 100%
+    display table
+    float right
+
+    &__name
+    &__image
+      vertical-align middle
+
+    &__name
+      padding-right 20px
+      display none
+      +above(l)
+        display table-cell
+
+      span
+        font-family Roboto
+        font-size rem(14px)
+        font-weight 300
+        color $cyan
+
+    &__image
+      display table-cell
+
+      img
+        width 40px
+        height 40px
+        border-radius 50%

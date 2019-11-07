@@ -2,9 +2,11 @@ import React from 'react'
 import { FiPieChart, FiUser, FiCalendar } from 'react-icons/fi'
 import Link from 'next/link'
 import useGetters from 'store/getters'
+import { withRouter } from 'next/router'
 
-const Sidebar = () => {
+const Sidebar = ({ router }) => {
   const { menu_active } = useGetters()
+  const { route } = router
 
   return (
     <aside className={
@@ -13,7 +15,7 @@ const Sidebar = () => {
         : "is-inactive"
     }>
       <ul>
-        <li>
+        <li className={route == "/" ? "is-active" : ""}>
           <Link href="/">
             <a>
               <FiPieChart />
@@ -21,7 +23,7 @@ const Sidebar = () => {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={route == "/users" ? "is-active" : ""}>
           <Link href="/users">
             <a>
               <FiUser />
@@ -29,7 +31,7 @@ const Sidebar = () => {
             </a>
           </Link>
         </li>
-        <li>
+        <li className={route == "/registers" ? "is-active" : ""}>
           <Link href="/registers">
             <a>
               <FiCalendar />
@@ -42,4 +44,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default withRouter(Sidebar)

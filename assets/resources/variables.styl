@@ -7,3 +7,23 @@ $red = #FF5555
 $salmon = #FF79C6
 $purple = #BD93F9
 $cyan = #A4FFFF
+
+colors = { 
+  black: $black,
+  grey: $grey,
+  grey-light: $grey-light,
+  white: $white,
+  blue: $blue,
+  red: $red,
+  salmon: $salmon,
+  purple: $purple,
+  cyan: $cyan,
+  default: $red
+}
+
+for key, value in colors
+  .bg-{key}
+    background-color value
+
+  .c-{key}
+    color value
