@@ -8,7 +8,11 @@
   .user
     height 100%
     display table
+    position relative
     float right
+    padding 0 15px
+    color $cyan
+    cursor pointer
 
     &__name
     &__image
@@ -22,9 +26,9 @@
 
       span
         font-family Roboto
-        font-size rem(14px)
+        font-size rem(12px)
         font-weight 300
-        color $cyan
+        text-transform uppercase
 
     &__image
       display table-cell
@@ -33,3 +37,45 @@
         width 40px
         height 40px
         border-radius 50%
+
+    &__controls
+      width 100%
+      display none
+      padding 15px
+      margin-top 15px
+      position absolute
+      top 100%
+      right 0
+      background-color $grey
+      box-shadow 0 0 10px rgba($black, 0.2)
+      text-align right
+
+      &:before
+        content ''
+        width 10px
+        height 10px
+        background-color inherit
+        border solid $red
+        border-width 0 1px 1px 0
+        position absolute
+        top -20px
+        left 50%
+        transform translateX(-50%) rotate(45deg)
+
+      &.is-active
+        display block
+
+      span
+      svg
+        display inline-block
+        vertical-align middle
+
+      span
+        margin-right 10px
+        font-size rem(14px)
+        font-weight 300
+        text-transform uppercase
+
+      svg
+        width 25px
+        height 25px

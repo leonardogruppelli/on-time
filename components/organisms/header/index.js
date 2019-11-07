@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useGetters from 'store/getters'
 import useActions from 'store/actions'
+import { AiOutlineLogout } from 'react-icons/ai'
 
 const Header = () => {
   const { menu_active } = useGetters()
+  const [controls_active, set_controls_active] = useState(false)
   const { toggle_menu } = useActions()
 
   return (
@@ -23,12 +25,20 @@ const Header = () => {
       </button>
 
       <div className="controls">
-        <div className="user">
+        <div
+          className={`user ${controls_active && "is-active"}`}
+          onClick={() => set_controls_active(!controls_active)}
+        >
           <div className="user__name">
             <span>Leonardo Gruppelli</span>
           </div>
           <div className="user__image">
             <img src="https://via.placeholder.com/150" alt="User" />
+          </div>
+
+          <div className={`user__controls ${controls_active && "is-active"}`}>
+            <span>Logout</span>
+            <AiOutlineLogout />
           </div>
         </div>
       </div>
