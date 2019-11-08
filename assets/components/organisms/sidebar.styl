@@ -30,6 +30,7 @@ aside
     width 100%
 
     li
+      position relative
       white-space nowrap
       +above(l)
         text-align center
@@ -37,6 +38,15 @@ aside
       &:hover
       &.is-active
         background-color $blue
+
+      &.is-active::before
+        content ''
+        width 5px
+        height 100%
+        position absolute
+        top 0
+        left 0
+        background-color $cyan
 
         a
           span

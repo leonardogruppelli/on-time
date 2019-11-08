@@ -48,7 +48,10 @@
       right 0
       background-color $grey
       box-shadow 0 0 10px rgba($black, 0.2)
-      text-align right
+      white-space nowrap
+      text-align center
+      +above(l)
+        text-align right
 
       &:before
         content ''
@@ -71,10 +74,13 @@
         vertical-align middle
 
       span
+        display none
         margin-right 10px
         font-size rem(14px)
         font-weight 300
         text-transform uppercase
+        +above(l)
+          display inline-block
 
       svg
         width 25px

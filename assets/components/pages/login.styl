@@ -1,0 +1,58 @@
+.login
+  display table-cell
+  vertical-align middle
+
+  &__wrapper
+    width 100vw
+    height 100vh
+    display table
+
+  &__content
+    width 90%
+    max-width 800px
+    display table
+    margin auto
+
+  &__image
+  &__form
+    vertical-align middle
+
+  &__image
+    width 30%
+    display none
+    background-color $grey-light
+    +above(l)
+      display table-cell
+
+    .logo
+      float none
+      padding 0 10px
+      margin auto
+
+      h1
+        font-size rem(38px)
+
+  &__form
+    display table-cell
+    padding 10% 8%
+    background-color $grey
+    +above(l)
+      padding 6% 8%
+
+    h1
+      margin-bottom 40px
+      font-family Montserrat
+      font-size (26px)
+      font-weight 400
+      color $salmon
+      text-transform uppercase
+      +above(l)
+        margin-bottom 10%
+
+  &__error
+    display block
+    margin-bottom 40px
+    font-size rem(14px)
+    color $red
+    +above(l)
+      margin-bottom 10%

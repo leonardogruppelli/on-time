@@ -1,0 +1,38 @@
+.control
+  width 100%
+  margin-bottom 40px
+  color $purple
+  +above(l)
+    margin-bottom 10%
+
+  &--error
+    color $red
+
+  label
+    display block
+    font-family Montserrat
+    font-size rem(12px)
+    font-weight 300
+    color inherit
+    text-transform uppercase
+
+  &__input
+    width 100%
+    position relative
+    border-bottom 2px solid
+
+    input
+      width 100%
+      padding 10px 0
+      background-color transparent
+      border 0
+      outline 0
+      font-family Montserrat
+      font-size rem(14px)
+      color inherit
+
+  span
+    display block
+    margin-top 10px
+    font-size rem(12px)
+    color $red

@@ -1,0 +1,32 @@
+.logo
+  height 100%
+  float left
+  padding 0 20px
+  +above(l)
+    padding 0 25px
+
+  &--small
+    display table
+    +above(l)
+      display none
+  
+  &--full
+    display none
+    +above(l)
+      display table
+
+  h1
+    display table-cell
+    vertical-align middle
+    font-family Roboto
+    font-size rem(26px)
+    font-weight 300
+    color $blue
+    
+    span
+      font-weight 500
+      color $red
+
+    strong
+      font-weight 400
+      color $purple

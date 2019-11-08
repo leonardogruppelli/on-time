@@ -9,8 +9,24 @@ const useActions = () => {
     })
   }
 
+  const login = (user) => {
+    dispatch({
+      type: 'LOGIN',
+      logged_in: true,
+      user:user
+    })
+  }
+
+  const logout = () => {
+    dispatch({
+      type: 'LOGOUT'
+    })
+  }
+
   return {
-    toggle_menu
+    toggle_menu,
+    login,
+    logout
   }
 }
 

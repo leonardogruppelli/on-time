@@ -1,21 +1,17 @@
 import React, { useState } from 'react'
+import Logo from 'components/atoms/logo'
 import useGetters from 'store/getters'
 import useActions from 'store/actions'
 import { AiOutlineLogout } from 'react-icons/ai'
 
 const Header = () => {
-  const { menu_active } = useGetters()
+  const { user, menu_active } = useGetters()
   const [controls_active, set_controls_active] = useState(false)
-  const { toggle_menu } = useActions()
+  const { logout, toggle_menu } = useActions()
 
   return (
     <header>
-      <div className="logo logo--small">
-        <h1><span>.</span>o<strong>t</strong></h1>
-      </div>
-      <div className="logo logo--full">
-        <h1><span>.</span>on<strong>time</strong></h1>
-      </div>
+      <Logo />
 
       <button className={`btn btn--menu ${menu_active && "is-active"}`} onClick={() => toggle_menu()}>
         Toggle Menu
@@ -30,13 +26,16 @@ const Header = () => {
           onClick={() => set_controls_active(!controls_active)}
         >
           <div className="user__name">
-            <span>Leonardo Gruppelli</span>
+            <span>{user.name}</span>
           </div>
           <div className="user__image">
-            <img src="https://via.placeholder.com/150" alt="User" />
+            <img src={user.image} alt="User" />
           </div>
 
-          <div className={`user__controls ${controls_active && "is-active"}`}>
+          <div
+            className={`user__controls ${controls_active && "is-active"}`}
+            onClick={() => logout()}
+          >
             <span>Logout</span>
             <AiOutlineLogout />
           </div>
