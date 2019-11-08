@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { FiEdit2, FiTrash } from 'react-icons/fi'
 import axios from 'axios'
 
 const Users = () => {
@@ -25,9 +26,9 @@ const Users = () => {
     <table>
       <thead>
         <tr>
-          <th className="id">#</th>
           <th>Name</th>
           <th className="mobile">Role</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -40,9 +41,12 @@ const Users = () => {
             :
             users.map(user =>
               <tr key={user.id}>
-                <td className="id">{user.id}</td>
                 <td>{user.name}</td>
                 <td className="mobile">{user.role}</td>
+                <td className="actions">
+                  <FiEdit2 className="c-yellow" />
+                  <FiTrash className="c-red" />
+                </td>
               </tr>
             )
         }
