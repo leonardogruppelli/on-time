@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiPieChart, FiUser, FiCalendar } from 'react-icons/fi'
+import { FiPieChart, FiUser, FiCalendar, FiClock } from 'react-icons/fi'
 import Link from 'next/link'
 import useGetters from 'store/getters'
 import { withRouter } from 'next/router'
@@ -36,6 +36,14 @@ const Sidebar = ({ router }) => {
             <a>
               <FiCalendar />
               <span>Registers</span>
+            </a>
+          </Link>
+        </li>
+        <li className={route == "/entries" ? "is-active" : ""}>
+          <Link href="/entries">
+            <a>
+              <FiClock />
+              <span>Entries</span>
             </a>
           </Link>
         </li>

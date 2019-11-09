@@ -2,6 +2,10 @@
   display table-cell
   vertical-align middle
 
+  &--full
+    width 100%
+    display block
+
   &__wrapper
     width 100vw
     height 100vh
@@ -54,5 +58,13 @@
     margin-bottom 40px
     font-size rem(14px)
     color $red
+    +above(l)
+      margin-bottom 10%
+
+  &__success
+    display block
+    margin-bottom 40px
+    font-size rem(14px)
+    color $green
     +above(l)
       margin-bottom 10%

@@ -6,13 +6,13 @@ import { Store } from 'store'
 import 'assets/core.styl'
 
 class MyApp extends App {
-  render () {
+  render() {
     const { Component, pageProps } = this.props
     return (
       <Provider store={Store}>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
       </Provider>
     )
   }

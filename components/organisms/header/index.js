@@ -3,17 +3,27 @@ import Logo from 'components/atoms/logo'
 import useGetters from 'store/getters'
 import useActions from 'store/actions'
 import { AiOutlineLogout } from 'react-icons/ai'
+import Router from 'next/router'
 
 const Header = () => {
   const { user, menu_active } = useGetters()
   const [controls_active, set_controls_active] = useState(false)
   const { logout, toggle_menu } = useActions()
 
+  const signout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    logout()
+  }
+
   return (
     <header>
       <Logo />
 
-      <button className={`btn btn--menu ${menu_active && "is-active"}`} onClick={() => toggle_menu()}>
+      <button
+        className={`btn btn--menu ${menu_active && 'is-active'}`}
+        onClick={() => toggle_menu()}
+      >
         Toggle Menu
         <span></span>
         <span className="middle"></span>
@@ -22,19 +32,19 @@ const Header = () => {
 
       <div className="controls">
         <div
-          className={`user ${controls_active && "is-active"}`}
+          className={`user ${controls_active && 'is-active'}`}
           onClick={() => set_controls_active(!controls_active)}
         >
           <div className="user__name">
             <span>{user.name}</span>
           </div>
-          <div className="user__image">
+          {/* <div className="user__image">
             <img src={user.image} alt="User" />
-          </div>
+          </div> */}
 
           <div
-            className={`user__controls ${controls_active && "is-active"}`}
-            onClick={() => logout()}
+            className={`user__controls ${controls_active && 'is-active'}`}
+            onClick={() => signout()}
           >
             <span>Logout</span>
             <AiOutlineLogout />

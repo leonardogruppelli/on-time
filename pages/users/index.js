@@ -1,57 +1,47 @@
 import React, { useState, useEffect } from 'react'
-import { FiEdit2, FiTrash } from 'react-icons/fi'
+import { useQuery } from '@apollo/react-hooks'
+import USERS from 'database/query/users'
+// import { FiEdit2, FiTrash } from 'react-icons/fi'
+import Link from 'next/link'
 import axios from 'axios'
 
 const Users = () => {
-  const [users, setUsers] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const get = async () => {
-      try {
-        const { data } = await axios.get('data/users.json')
-
-        setUsers(data)
-      } catch (error) {
-        console.log(error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    get()
-  }, [])
+  const { data, loading, error } = useQuery(USERS)
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th className="mobile">Role</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          loading
-            ?
+    <div>
+      <Link href="/register">
+        <a className="btn bg-cyan">Register user</a>
+      </Link>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th className="mobile">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          {loading ? (
             <tr>
               <td>loading...</td>
             </tr>
-            :
-            users.map(user =>
+          ) : (
+            data.allUsers.map(user => (
               <tr key={user.id}>
                 <td>{user.name}</td>
+                <td className="mobile">{user.email}</td>
                 <td className="mobile">{user.role}</td>
-                <td className="actions">
+                {/* <td className="actions">
                   <FiEdit2 className="c-yellow" />
                   <FiTrash className="c-red" />
-                </td>
+                </td> */}
               </tr>
-            )
-        }
-      </tbody>
-    </table>
+            ))
+          )}
+        </tbody>
+      </table>
+    </div>
   )
 }
 

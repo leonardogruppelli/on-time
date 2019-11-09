@@ -9,11 +9,11 @@ const useActions = () => {
     })
   }
 
-  const login = (user) => {
+  const login = user => {
     dispatch({
       type: 'LOGIN',
       logged_in: true,
-      user:user
+      user: user
     })
   }
 
